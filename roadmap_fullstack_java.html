@@ -1,0 +1,5690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+         META
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Full Stack Java Developer Roadmap designed and developed by Abhijeet Mohan Salunke.">
+
+    <meta name="keywords"
+          content="Full Stack Java Roadmap, Java Developer, Spring Boot, Java, Bootstrap 5, JavaScript, HTML, CSS">
+
+    <meta name="author"
+          content="Abhijeet Mohan Salunke">
+
+    <meta name="theme-color"
+          content="#080b14">
+
+
+    <title>
+        Full Stack Java Roadmap | Abhijeet Mohan Salunke
+    </title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP 5
+    ====================================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =================================================
+           VARIABLES
+        ================================================= */
+
+        :root {
+
+            --bg: #070a12;
+
+            --bg-soft: #0c111d;
+
+            --surface: rgba(16, 23, 38, 0.72);
+
+            --surface-solid: #111827;
+
+            --border: rgba(255,255,255,0.09);
+
+            --border-hover: rgba(129,140,248,0.45);
+
+            --text: #f8fafc;
+
+            --muted: #94a3b8;
+
+            --primary: #6366f1;
+
+            --primary-light: #818cf8;
+
+            --purple: #8b5cf6;
+
+            --cyan: #22d3ee;
+
+            --green: #34d399;
+
+            --orange: #fb923c;
+
+            --shadow:
+                0 25px 70px rgba(0,0,0,0.35);
+
+        }
+
+
+        /* =================================================
+           LIGHT MODE
+        ================================================= */
+
+        body.light-mode {
+
+            --bg: #f7f8fc;
+
+            --bg-soft: #ffffff;
+
+            --surface: rgba(255,255,255,0.82);
+
+            --surface-solid: #ffffff;
+
+            --border: rgba(15,23,42,0.09);
+
+            --border-hover: rgba(99,102,241,0.35);
+
+            --text: #0f172a;
+
+            --muted: #64748b;
+
+            --shadow:
+                0 25px 70px rgba(15,23,42,0.10);
+
+            background: var(--bg);
+
+            color: var(--text);
+
+        }
+
+
+        /* =================================================
+           GLOBAL
+        ================================================= */
+
+        * {
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            margin: 0;
+
+            background: var(--bg);
+
+            color: var(--text);
+
+            font-family: 'Inter', sans-serif;
+
+            overflow-x: hidden;
+
+            transition:
+                background 0.4s ease,
+                color 0.4s ease;
+
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+
+            font-family:
+                'Space Grotesk',
+                sans-serif;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+
+        ::selection {
+
+            background: var(--primary);
+
+            color: white;
+
+        }
+
+
+        section {
+
+            padding: 110px 0;
+
+            position: relative;
+
+        }
+
+
+        .container {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        /* =================================================
+           SCROLL PROGRESS
+        ================================================= */
+
+        .scroll-progress {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 0%;
+
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--purple),
+                    var(--cyan)
+                );
+
+            z-index: 9999;
+
+        }
+
+
+        /* =================================================
+           BACKGROUND
+        ================================================= */
+
+        .background-grid {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: 0.25;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 60px 60px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 80%
+                );
+
+            z-index: 0;
+
+        }
+
+
+        .glow {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(100px);
+
+            pointer-events: none;
+
+        }
+
+
+        .glow-one {
+
+            width: 450px;
+
+            height: 450px;
+
+            background:
+                rgba(99,102,241,0.18);
+
+            top: 50px;
+
+            left: -180px;
+
+        }
+
+
+        .glow-two {
+
+            width: 400px;
+
+            height: 400px;
+
+            background:
+                rgba(34,211,238,0.12);
+
+            right: -180px;
+
+            top: 400px;
+
+        }
+
+
+        /* =================================================
+           NAVBAR
+        ================================================= */
+
+        .navbar {
+
+            background:
+                rgba(7,10,18,0.65);
+
+            backdrop-filter:
+                blur(20px);
+
+            border-bottom:
+                1px solid var(--border);
+
+            transition:
+                0.3s;
+
+        }
+
+
+        body.light-mode .navbar {
+
+            background:
+                rgba(255,255,255,0.75);
+
+        }
+
+
+        .navbar-brand {
+
+            color: var(--text);
+
+            font-size: 1.25rem;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+        }
+
+
+        .navbar-brand span {
+
+            color: var(--primary-light);
+
+        }
+
+
+        .nav-link {
+
+            color: var(--muted) !important;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            margin-left: 12px;
+
+            transition:
+                0.25s;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: var(--text) !important;
+
+        }
+
+
+        .theme-btn {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--surface);
+
+            color: var(--text);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: 0.3s;
+
+        }
+
+
+        .theme-btn:hover {
+
+            transform:
+                rotate(15deg)
+                scale(1.05);
+
+            border-color:
+                var(--border-hover);
+
+        }
+
+
+        .navbar-toggler {
+
+            border:
+                1px solid var(--border);
+
+        }
+
+
+        .navbar-toggler-icon {
+
+            filter:
+                invert(1);
+
+        }
+
+
+        body.light-mode
+        .navbar-toggler-icon {
+
+            filter: none;
+
+        }
+
+
+        /* =================================================
+           HERO
+        ================================================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            padding-top: 130px;
+
+            overflow: hidden;
+
+        }
+
+
+        .hero-content {
+
+            max-width: 760px;
+
+        }
+
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 8px 14px;
+
+            border:
+                1px solid
+                rgba(129,140,248,0.25);
+
+            background:
+                rgba(99,102,241,0.08);
+
+            border-radius: 100px;
+
+            color:
+                var(--primary-light);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .pulse-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+
+            box-shadow:
+                0 0 0 5px
+                rgba(52,211,153,0.1);
+
+            animation:
+                pulse 2s infinite;
+
+        }
+
+
+        @keyframes pulse {
+
+            0% {
+
+                box-shadow:
+                    0 0 0 0
+                    rgba(52,211,153,0.35);
+
+            }
+
+            70% {
+
+                box-shadow:
+                    0 0 0 8px
+                    rgba(52,211,153,0);
+
+            }
+
+            100% {
+
+                box-shadow:
+                    0 0 0 0
+                    rgba(52,211,153,0);
+
+            }
+
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(3.2rem, 7vw, 6.7rem);
+
+            line-height: 0.98;
+
+            letter-spacing: -4px;
+
+            font-weight: 800;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .gradient-text {
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #818cf8 0%,
+                    #a78bfa 45%,
+                    #22d3ee 100%
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color:
+                transparent;
+
+            background-clip: text;
+
+        }
+
+
+        .hero-description {
+
+            color: var(--muted);
+
+            font-size: 1.08rem;
+
+            line-height: 1.85;
+
+            max-width: 680px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .hero-author {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .author-avatar-small {
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--purple)
+                );
+
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+        }
+
+
+        .btn-main {
+
+            border: none;
+
+            padding: 14px 22px;
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--purple)
+                );
+
+            box-shadow:
+                0 12px 35px
+                rgba(99,102,241,0.25);
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .btn-main:hover {
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 18px 45px
+                rgba(99,102,241,0.35);
+
+        }
+
+
+        .btn-ghost {
+
+            padding: 14px 22px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 10px;
+
+            color: var(--text);
+
+            background:
+                rgba(255,255,255,0.025);
+
+            font-weight: 600;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .btn-ghost:hover {
+
+            color: var(--text);
+
+            border-color:
+                var(--border-hover);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        /* =================================================
+           HERO TERMINAL
+        ================================================= */
+
+        .terminal {
+
+            position: relative;
+
+            background:
+                rgba(12,17,29,0.8);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                var(--shadow);
+
+            animation:
+                terminalFloat 5s ease-in-out infinite;
+
+        }
+
+
+        @keyframes terminalFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-12px);
+
+            }
+
+        }
+
+
+        .terminal-header {
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 0 18px;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .terminal-dot {
+
+            width: 10px;
+
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: #475569;
+
+        }
+
+
+        .terminal-title {
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+            color: #64748b;
+
+            font-size: 11px;
+
+            font-family: monospace;
+
+        }
+
+
+        .terminal-body {
+
+            padding: 25px;
+
+            font-family:
+                'Courier New',
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 2;
+
+            color: #cbd5e1;
+
+        }
+
+
+        .terminal-purple {
+
+            color: #c084fc;
+
+        }
+
+
+        .terminal-blue {
+
+            color: #67e8f9;
+
+        }
+
+
+        .terminal-green {
+
+            color: #86efac;
+
+        }
+
+
+        .terminal-pink {
+
+            color: #f9a8d4;
+
+        }
+
+
+        .terminal-muted {
+
+            color: #64748b;
+
+        }
+
+
+        .terminal-line {
+
+            opacity: 0;
+
+            transform:
+                translateX(-10px);
+
+            animation:
+                terminalLine
+                0.5s forwards;
+
+        }
+
+
+        .terminal-line:nth-child(1) {
+            animation-delay: .2s;
+        }
+
+        .terminal-line:nth-child(2) {
+            animation-delay: .4s;
+        }
+
+        .terminal-line:nth-child(3) {
+            animation-delay: .6s;
+        }
+
+        .terminal-line:nth-child(4) {
+            animation-delay: .8s;
+        }
+
+        .terminal-line:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .terminal-line:nth-child(6) {
+            animation-delay: 1.2s;
+        }
+
+        .terminal-line:nth-child(7) {
+            animation-delay: 1.4s;
+        }
+
+
+        @keyframes terminalLine {
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateX(0);
+
+            }
+
+        }
+
+
+        /* =================================================
+           SECTION HEADER
+        ================================================= */
+
+        .section-header {
+
+            text-align: center;
+
+            max-width: 760px;
+
+            margin:
+                0 auto 65px;
+
+        }
+
+
+        .section-label {
+
+            display: inline-block;
+
+            color:
+                var(--primary-light);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .section-header h2 {
+
+            font-size:
+                clamp(2rem, 4vw, 3.3rem);
+
+            font-weight: 800;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .section-header p {
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+            margin: 0;
+
+        }
+
+
+        /* =================================================
+           STATS
+        ================================================= */
+
+        .stats-section {
+
+            padding:
+                35px 0;
+
+            border-top:
+                1px solid var(--border);
+
+            border-bottom:
+                1px solid var(--border);
+
+            background:
+                rgba(255,255,255,0.012);
+
+        }
+
+
+        .stat {
+
+            text-align: center;
+
+            padding: 18px;
+
+        }
+
+
+        .stat-number {
+
+            font-size: 2rem;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #818cf8,
+                    #22d3ee
+                );
+
+            -webkit-background-clip:
+                text;
+
+            -webkit-text-fill-color:
+                transparent;
+
+        }
+
+
+        .stat-label {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* =================================================
+           ROADMAP
+        ================================================= */
+
+        .roadmap-wrapper {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            position: relative;
+
+        }
+
+
+        .roadmap-line {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+
+            bottom: 0;
+
+            width: 2px;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--primary),
+                    var(--purple),
+                    var(--cyan),
+                    transparent
+                );
+
+        }
+
+
+        .roadmap-row {
+
+            display: flex;
+
+            position: relative;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .roadmap-row:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .roadmap-side {
+
+            width: 50%;
+
+            padding: 0 45px;
+
+        }
+
+
+        .roadmap-row:nth-child(even)
+        .roadmap-side:first-child {
+
+            order: 2;
+
+        }
+
+
+        .roadmap-row:nth-child(even)
+        .roadmap-side:last-child {
+
+            order: 1;
+
+        }
+
+
+        .roadmap-content {
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            backdrop-filter:
+                blur(15px);
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            transition:
+                0.4s;
+
+            cursor: pointer;
+
+        }
+
+
+        .roadmap-content:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                var(--border-hover);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .roadmap-row:nth-child(odd)
+        .roadmap-side:first-child {
+
+            text-align: right;
+
+        }
+
+
+        .roadmap-row:nth-child(even)
+        .roadmap-side:last-child {
+
+            text-align: left;
+
+        }
+
+
+        .roadmap-number {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 27px;
+
+            transform:
+                translate(-50%, -50%);
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                var(--bg);
+
+            border:
+                2px solid
+                var(--primary);
+
+            color:
+                var(--primary-light);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            z-index: 3;
+
+            box-shadow:
+                0 0 25px
+                rgba(99,102,241,0.35);
+
+        }
+
+
+        .phase-meta {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color:
+                var(--primary-light);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .roadmap-row:nth-child(odd)
+        .phase-meta {
+
+            justify-content: flex-end;
+
+        }
+
+
+        .roadmap-content h3 {
+
+            font-size: 1.35rem;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .roadmap-content p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.75;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+        }
+
+
+        .roadmap-row:nth-child(odd)
+        .tags {
+
+            justify-content: flex-end;
+
+        }
+
+
+        .tag {
+
+            padding:
+                5px 9px;
+
+            border-radius: 6px;
+
+            background:
+                rgba(99,102,241,0.08);
+
+            border:
+                1px solid
+                rgba(99,102,241,0.12);
+
+            color:
+                #c7d2fe;
+
+            font-size: 10px;
+
+        }
+
+
+        /* =================================================
+           TECH STACK
+        ================================================= */
+
+        .tech-card {
+
+            height: 100%;
+
+            padding: 28px;
+
+            border-radius: 18px;
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            transition:
+                0.35s;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .tech-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+
+            height: 100px;
+
+            border-radius: 50%;
+
+            background:
+                var(--primary);
+
+            filter:
+                blur(60px);
+
+            opacity: 0;
+
+            right: -30px;
+
+            top: -30px;
+
+            transition:
+                0.4s;
+
+        }
+
+
+        .tech-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            border-color:
+                var(--border-hover);
+
+        }
+
+
+        .tech-card:hover::before {
+
+            opacity: 0.18;
+
+        }
+
+
+        .tech-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                rgba(99,102,241,0.1);
+
+            color:
+                var(--primary-light);
+
+            font-size: 23px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .tech-card h4 {
+
+            font-size: 1.1rem;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .tech-card p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.75;
+
+            margin: 0;
+
+        }
+
+
+        /* =================================================
+           SKILL BARS
+        ================================================= */
+
+        .skill-panel {
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+        }
+
+
+        .skill-item {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .skill-item:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .skill-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 13px;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .skill-header span:last-child {
+
+            color:
+                var(--primary-light);
+
+            font-weight: 700;
+
+        }
+
+
+        .progress-track {
+
+            height: 7px;
+
+            background:
+                rgba(148,163,184,0.12);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+        }
+
+
+        .progress-value {
+
+            height: 100%;
+
+            border-radius: inherit;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--purple),
+                    var(--cyan)
+                );
+
+            width: 0;
+
+            transition:
+                width 1.5s ease;
+
+        }
+
+
+        /* =================================================
+           PROJECTS
+        ================================================= */
+
+        .project-card {
+
+            height: 100%;
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            transition:
+                0.4s;
+
+        }
+
+
+        .project-card:hover {
+
+            transform:
+                translateY(-9px);
+
+            border-color:
+                var(--border-hover);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .project-visual {
+
+            height: 190px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(99,102,241,0.22),
+                    transparent 65%
+                );
+
+        }
+
+
+        .project-visual i {
+
+            font-size: 65px;
+
+            color:
+                var(--primary-light);
+
+            transition:
+                0.4s;
+
+        }
+
+
+        .project-card:hover
+        .project-visual i {
+
+            transform:
+                scale(1.15)
+                rotate(-4deg);
+
+        }
+
+
+        .project-number {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 18px;
+
+            color:
+                rgba(255,255,255,0.35);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+        }
+
+
+        .project-body {
+
+            padding: 25px;
+
+        }
+
+
+        .project-body h3 {
+
+            font-size: 1.25rem;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .project-body p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.75;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .project-footer {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-top: 20px;
+
+        }
+
+
+        .project-link {
+
+            color:
+                var(--primary-light);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =================================================
+           CREATOR
+        ================================================= */
+
+        .creator-box {
+
+            max-width: 950px;
+
+            margin: auto;
+
+            padding: 55px;
+
+            border-radius: 25px;
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            backdrop-filter:
+                blur(18px);
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .creator-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+
+            height: 250px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(99,102,241,0.15);
+
+            filter:
+                blur(80px);
+
+            top: -150px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+        }
+
+
+        .creator-avatar {
+
+            width: 100px;
+
+            height: 100px;
+
+            margin:
+                0 auto 20px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            font-size: 27px;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--purple)
+                );
+
+            box-shadow:
+                0 20px 50px
+                rgba(99,102,241,0.3);
+
+            position: relative;
+
+        }
+
+
+        .creator-box h3 {
+
+            font-size: 1.7rem;
+
+        }
+
+
+        .creator-role {
+
+            color:
+                var(--primary-light);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .creator-box p {
+
+            color: var(--muted);
+
+            line-height: 1.9;
+
+            max-width: 700px;
+
+            margin:
+                0 auto 25px;
+
+            font-size: 14px;
+
+        }
+
+
+        .social-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+        }
+
+
+        .social-btn {
+
+            width: 42px;
+
+            height: 42px;
+
+            border:
+                1px solid var(--border);
+
+            color:
+                var(--muted);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .social-btn:hover {
+
+            color: white;
+
+            background:
+                var(--primary);
+
+            border-color:
+                var(--primary);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        /* =================================================
+           CTA
+        ================================================= */
+
+        .cta {
+
+            padding-bottom: 120px;
+
+        }
+
+
+        .cta-box {
+
+            position: relative;
+
+            overflow: hidden;
+
+            text-align: center;
+
+            padding: 75px 30px;
+
+            border-radius: 25px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(99,102,241,0.12),
+                    rgba(139,92,246,0.07),
+                    rgba(34,211,238,0.06)
+                );
+
+        }
+
+
+        .cta-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(99,102,241,0.15);
+
+            filter:
+                blur(100px);
+
+            left: 50%;
+
+            top: 50%;
+
+            transform:
+                translate(-50%,-50%);
+
+        }
+
+
+        .cta-box > * {
+
+            position: relative;
+
+        }
+
+
+        .cta-box h2 {
+
+            font-size:
+                clamp(2rem, 4vw, 3.2rem);
+
+            font-weight: 800;
+
+        }
+
+
+        .cta-box p {
+
+            max-width: 650px;
+
+            margin:
+                15px auto 30px;
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =================================================
+           FOOTER
+        ================================================= */
+
+        footer {
+
+            border-top:
+                1px solid var(--border);
+
+            padding: 35px 0;
+
+            background:
+                rgba(0,0,0,0.15);
+
+        }
+
+
+        footer p {
+
+            color: var(--muted);
+
+            margin: 0;
+
+            font-size: 12px;
+
+        }
+
+
+        .footer-name {
+
+            color: var(--text);
+
+            font-weight: 700;
+
+        }
+
+
+        /* =================================================
+           BACK TO TOP
+        ================================================= */
+
+        #backTop {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 46px;
+
+            height: 46px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                var(--primary);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform:
+                translateY(15px);
+
+            transition:
+                0.3s;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 12px 35px
+                rgba(99,102,241,0.35);
+
+        }
+
+
+        #backTop.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =================================================
+           MODAL
+        ================================================= */
+
+        .modal-content {
+
+            background:
+                #101624;
+
+            border:
+                1px solid var(--border);
+
+            color: white;
+
+            border-radius: 20px;
+
+        }
+
+
+        .modal-header {
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .modal-footer {
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .modal-description {
+
+            color:
+                #94a3b8;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+
+        }
+
+
+        .detail-list {
+
+            list-style: none;
+
+            padding: 0;
+
+        }
+
+
+        .detail-list li {
+
+            padding: 10px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.05);
+
+            color: #cbd5e1;
+
+            font-size: 13px;
+
+        }
+
+
+        .detail-list li i {
+
+            color:
+                var(--green);
+
+            margin-right: 8px;
+
+        }
+
+
+        /* =================================================
+           REVEAL
+        ================================================= */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+
+        }
+
+
+        .reveal.visible {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media (max-width: 991px) {
+
+            .hero {
+
+                padding-top: 120px;
+
+            }
+
+
+            .terminal {
+
+                margin-top: 30px;
+
+            }
+
+
+            .roadmap-line {
+
+                left: 20px;
+
+            }
+
+
+            .roadmap-row {
+
+                display: block;
+
+                padding-left: 55px;
+
+            }
+
+
+            .roadmap-side,
+            .roadmap-row:nth-child(even)
+            .roadmap-side:first-child,
+            .roadmap-row:nth-child(even)
+            .roadmap-side:last-child {
+
+                width: 100%;
+
+                order: unset;
+
+                padding: 0;
+
+                text-align: left !important;
+
+            }
+
+
+            .roadmap-number {
+
+                left: 20px;
+
+                transform:
+                    translate(-50%, -50%);
+
+            }
+
+
+            .roadmap-row:nth-child(odd)
+            .phase-meta {
+
+                justify-content:
+                    flex-start;
+
+            }
+
+
+            .roadmap-row:nth-child(odd)
+            .tags {
+
+                justify-content:
+                    flex-start;
+
+            }
+
+        }
+
+
+        @media (max-width: 576px) {
+
+            section {
+
+                padding: 80px 0;
+
+            }
+
+
+            .hero h1 {
+
+                letter-spacing: -2.5px;
+
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .btn-main,
+            .btn-ghost {
+
+                width: 100%;
+
+                text-align: center;
+
+            }
+
+
+            .terminal-body {
+
+                padding: 18px;
+
+                font-size: 11px;
+
+            }
+
+
+            .creator-box {
+
+                padding: 35px 20px;
+
+            }
+
+
+            .roadmap-row {
+
+                padding-left: 42px;
+
+            }
+
+
+            .roadmap-line {
+
+                left: 12px;
+
+            }
+
+
+            .roadmap-number {
+
+                left: 12px;
+
+                width: 34px;
+
+                height: 34px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+====================================================== -->
+
+<div class="background-grid"></div>
+
+<div class="glow glow-one"></div>
+
+<div class="glow glow-two"></div>
+
+
+<!-- SCROLL PROGRESS -->
+
+<div class="scroll-progress"
+     id="scrollProgress"></div>
+
+
+
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+
+    <div class="container">
+
+
+        <a class="navbar-brand"
+           href="#home">
+
+            Abhijeet<span>.dev</span>
+
+        </a>
+
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse"
+             id="mainNav">
+
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="#home">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="#roadmap">
+
+                        Roadmap
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="#stack">
+
+                        Stack
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="#projects">
+
+                        Projects
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="#about">
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+
+                    <button class="theme-btn"
+                            id="themeToggle"
+                            title="Toggle theme">
+
+                        <i class="bi bi-moon-stars"
+                           id="themeIcon"></i>
+
+                    </button>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="hero"
+         id="home">
+
+
+    <div class="container">
+
+
+        <div class="row align-items-center g-5">
+
+
+            <!-- LEFT -->
+
+            <div class="col-lg-7">
+
+
+                <div class="hero-content reveal">
+
+
+                    <div class="eyebrow">
+
+                        <span class="pulse-dot"></span>
+
+                        Developer Roadmap · 2026
+
+                    </div>
+
+
+                    <h1>
+
+                        Master the
+
+                        <span class="gradient-text">
+
+                            Full Stack
+
+                            Java Journey.
+
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        A visual, structured and practical
+                        roadmap covering Java fundamentals,
+                        frontend development, SQL, Spring Boot,
+                        REST APIs, security, DevOps and
+                        portfolio projects.
+
+                    </p>
+
+
+                    <div class="hero-author">
+
+
+                        <div class="author-avatar-small">
+
+                            AS
+
+                        </div>
+
+
+                        <div>
+
+                            Designed & developed by
+
+                            <strong class="text-white">
+
+                                Abhijeet Mohan Salunke
+
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="hero-buttons">
+
+
+                        <a href="#roadmap"
+                           class="btn-main">
+
+                            Explore Roadmap
+
+                            <i class="bi bi-arrow-down ms-2"></i>
+
+                        </a>
+
+
+                        <a href="#projects"
+                           class="btn-ghost">
+
+                            View Projects
+
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT TERMINAL -->
+
+            <div class="col-lg-5">
+
+
+                <div class="terminal reveal">
+
+
+                    <div class="terminal-header">
+
+
+                        <span class="terminal-dot"></span>
+
+                        <span class="terminal-dot"></span>
+
+                        <span class="terminal-dot"></span>
+
+
+                        <span class="terminal-title">
+
+                            fullstack-java.java
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="terminal-body">
+
+
+                        <div class="terminal-line">
+
+                            <span class="terminal-muted">
+                                01
+                            </span>
+
+                            &nbsp;
+
+                            <span class="terminal-purple">
+                                public class
+                            </span>
+
+                            <span class="terminal-blue">
+                                Developer
+                            </span>
+
+                            {
+
+                        </div>
+
+
+                        <div class="terminal-line">
+
+                            <span class="terminal-muted">
+                                02
+                            </span>
+
+                            &nbsp;&nbsp;
+
+                            <span class="terminal-purple">
+                                String
+                            </span>
+
+                            name =
+
+                            <span class="terminal-green">
+                                "Abhijeet";
+                            </span>
+
+                        </div>
+
+
+                        <div class="terminal-line">
+
+                            <span class="terminal-muted">
+                                03
+                            </span>
+
+                            &nbsp;&nbsp;
+
+                            <span class="terminal-purple">
+                                String[]
+                            </span>
+
+                            skills = {
+
+                        </div>
+
+
+                        <div class="terminal-line">
+
+                            <span class="terminal-muted">
+                                04
+                            </span>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="terminal-green">
+                                "Java",
+                            </span>
+
+                        </div>
+
+
+                        <div class="terminal-line">
+
+                            <span class="terminal-muted">
+                                05
+                            </span>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="terminal-green">
+                                "Spring Boot",
+                            </span>
+
+                        </div>
+
+
+                        <div class="terminal-line">
+
+                            <span class="terminal-muted">
+                                06
+                            </span>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="terminal-green">
+                                "SQL",
+                            </span>
+
+                            <span class="terminal-muted">
+                                ...
+                            </span>
+
+                        </div>
+
+
+                        <div class="terminal-line">
+
+                            <span class="terminal-muted">
+                                07
+                            </span>
+
+                            &nbsp;&nbsp;
+
+                            <span class="terminal-purple">
+                                buildFuture
+                            </span>();
+
+                            <span class="terminal-pink">
+                                →
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+====================================================== -->
+
+<section class="stats-section">
+
+
+    <div class="container">
+
+
+        <div class="row">
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="stat">
+
+                    <div class="stat-number counter"
+                         data-target="8">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+
+                        Roadmap Phases
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="stat">
+
+                    <div class="stat-number counter"
+                         data-target="30">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+
+                        Technologies
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="stat">
+
+                    <div class="stat-number counter"
+                         data-target="10">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+
+                        Project Ideas
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <div class="stat">
+
+                    <div class="stat-number">
+
+                        ∞
+
+                    </div>
+
+                    <div class="stat-label">
+
+                        Learning Potential
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ROADMAP
+====================================================== -->
+
+<section id="roadmap">
+
+
+    <div class="container">
+
+
+        <div class="section-header reveal">
+
+
+            <span class="section-label">
+
+                THE JOURNEY
+
+            </span>
+
+
+            <h2>
+
+                Your Path to
+
+                <span class="gradient-text">
+
+                    Full Stack Java
+
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Move through each phase in sequence.
+                Click any phase to explore the skills,
+                tools and practical outcomes.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="roadmap-wrapper">
+
+
+            <div class="roadmap-line"></div>
+
+
+            <!-- PHASE 01 -->
+
+            <div class="roadmap-row reveal">
+
+
+                <div class="roadmap-number">
+
+                    01
+
+                </div>
+
+
+                <div class="roadmap-side">
+
+
+                    <div class="roadmap-content"
+                         data-phase="java">
+
+
+                        <div class="phase-meta">
+
+                            <i class="bi bi-cpu"></i>
+
+                            Foundation
+
+                        </div>
+
+
+                        <h3>
+
+                            Java Fundamentals
+
+                        </h3>
+
+
+                        <p>
+
+                            Start with programming logic
+                            and develop a strong foundation
+                            in the Java language.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                Syntax
+                            </span>
+
+
+                            <span class="tag">
+                                Variables
+                            </span>
+
+
+                            <span class="tag">
+                                Loops
+                            </span>
+
+
+                            <span class="tag">
+                                Methods
+                            </span>
+
+
+                            <span class="tag">
+                                Arrays
+                            </span>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="roadmap-side"></div>
+
+
+            </div>
+
+
+
+            <!-- PHASE 02 -->
+
+            <div class="roadmap-row reveal">
+
+
+                <div class="roadmap-number">
+
+                    02
+
+                </div>
+
+
+                <div class="roadmap-side"></div>
+
+
+                <div class="roadmap-side">
+
+
+                    <div class="roadmap-content"
+                         data-phase="oop">
+
+
+                        <div class="phase-meta">
+
+                            <i class="bi bi-boxes"></i>
+
+                            Core Development
+
+                        </div>
+
+
+                        <h3>
+
+                            OOP & Advanced Java
+
+                        </h3>
+
+
+                        <p>
+
+                            Understand how professional
+                            Java applications are structured
+                            using object-oriented principles.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                OOP
+                            </span>
+
+
+                            <span class="tag">
+                                Collections
+                            </span>
+
+
+                            <span class="tag">
+                                Exceptions
+                            </span>
+
+
+                            <span class="tag">
+                                Streams
+                            </span>
+
+
+                            <span class="tag">
+                                Threads
+                            </span>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHASE 03 -->
+
+            <div class="roadmap-row reveal">
+
+
+                <div class="roadmap-number">
+
+                    03
+
+                </div>
+
+
+                <div class="roadmap-side">
+
+
+                    <div class="roadmap-content"
+                         data-phase="frontend">
+
+
+                        <div class="phase-meta">
+
+                            <i class="bi bi-window-stack"></i>
+
+                            User Interface
+
+                        </div>
+
+
+                        <h3>
+
+                            Frontend Development
+
+                        </h3>
+
+
+                        <p>
+
+                            Learn to create responsive,
+                            accessible and interactive
+                            interfaces for web applications.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                HTML5
+                            </span>
+
+
+                            <span class="tag">
+                                CSS3
+                            </span>
+
+
+                            <span class="tag">
+                                JavaScript
+                            </span>
+
+
+                            <span class="tag">
+                                Bootstrap 5
+                            </span>
+
+
+                            <span class="tag">
+                                UI/UX
+                            </span>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="roadmap-side"></div>
+
+
+            </div>
+
+
+
+            <!-- PHASE 04 -->
+
+            <div class="roadmap-row reveal">
+
+
+                <div class="roadmap-number">
+
+                    04
+
+                </div>
+
+
+                <div class="roadmap-side"></div>
+
+
+                <div class="roadmap-side">
+
+
+                    <div class="roadmap-content"
+                         data-phase="database">
+
+
+                        <div class="phase-meta">
+
+                            <i class="bi bi-database"></i>
+
+                            Data Layer
+
+                        </div>
+
+
+                        <h3>
+
+                            SQL & Databases
+
+                        </h3>
+
+
+                        <p>
+
+                            Learn how applications store,
+                            retrieve, connect and manage
+                            structured data.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                SQL
+                            </span>
+
+
+                            <span class="tag">
+                                MySQL
+                            </span>
+
+
+                            <span class="tag">
+                                Joins
+                            </span>
+
+
+                            <span class="tag">
+                                JDBC
+                            </span>
+
+
+                            <span class="tag">
+                                Design
+                            </span>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHASE 05 -->
+
+            <div class="roadmap-row reveal">
+
+
+                <div class="roadmap-number">
+
+                    05
+
+                </div>
+
+
+                <div class="roadmap-side">
+
+
+                    <div class="roadmap-content"
+                         data-phase="spring">
+
+
+                        <div class="phase-meta">
+
+                            <i class="bi bi-diagram-3"></i>
+
+                            Backend
+
+                        </div>
+
+
+                        <h3>
+
+                            Spring Boot
+
+                        </h3>
+
+
+                        <p>
+
+                            Build scalable backend systems
+                            using the Spring ecosystem and
+                            modern Java development practices.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                Spring
+                            </span>
+
+
+                            <span class="tag">
+                                Spring Boot
+                            </span>
+
+
+                            <span class="tag">
+                                JPA
+                            </span>
+
+
+                            <span class="tag">
+                                Hibernate
+                            </span>
+
+
+                            <span class="tag">
+                                Maven
+                            </span>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="roadmap-side"></div>
+
+
+            </div>
+
+
+
+            <!-- PHASE 06 -->
+
+            <div class="roadmap-row reveal">
+
+
+                <div class="roadmap-number">
+
+                    06
+
+                </div>
+
+
+                <div class="roadmap-side"></div>
+
+
+                <div class="roadmap-side">
+
+
+                    <div class="roadmap-content"
+                         data-phase="api">
+
+
+                        <div class="phase-meta">
+
+                            <i class="bi bi-braces"></i>
+
+                            Integration
+
+                        </div>
+
+
+                        <h3>
+
+                            REST APIs & Security
+
+                        </h3>
+
+
+                        <p>
+
+                            Connect frontend and backend
+                            through APIs and implement
+                            secure authentication.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                REST
+                            </span>
+
+
+                            <span class="tag">
+                                JSON
+                            </span>
+
+
+                            <span class="tag">
+                                JWT
+                            </span>
+
+
+                            <span class="tag">
+                                Security
+                            </span>
+
+
+                            <span class="tag">
+                                Postman
+                            </span>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHASE 07 -->
+
+            <div class="roadmap-row reveal">
+
+
+                <div class="roadmap-number">
+
+                    07
+
+                </div>
+
+
+                <div class="roadmap-side">
+
+
+                    <div class="roadmap-content"
+                         data-phase="devops">
+
+
+                        <div class="phase-meta">
+
+                            <i class="bi bi-cloud-arrow-up"></i>
+
+                            Deployment
+
+                        </div>
+
+
+                        <h3>
+
+                            Git, DevOps & Cloud
+
+                        </h3>
+
+
+                        <p>
+
+                            Learn version control,
+                            containerization and the
+                            fundamentals of deployment.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                Git
+                            </span>
+
+
+                            <span class="tag">
+                                GitHub
+                            </span>
+
+
+                            <span class="tag">
+                                Docker
+                            </span>
+
+
+                            <span class="tag">
+                                CI/CD
+                            </span>
+
+
+                            <span class="tag">
+                                Cloud
+                            </span>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="roadmap-side"></div>
+
+
+            </div>
+
+
+
+            <!-- PHASE 08 -->
+
+            <div class="roadmap-row reveal">
+
+
+                <div class="roadmap-number">
+
+                    08
+
+                </div>
+
+
+                <div class="roadmap-side"></div>
+
+
+                <div class="roadmap-side">
+
+
+                    <div class="roadmap-content"
+                         data-phase="career">
+
+
+                        <div class="phase-meta">
+
+                            <i class="bi bi-rocket-takeoff"></i>
+
+                            Career
+
+                        </div>
+
+
+                        <h3>
+
+                            Projects & Career
+
+                        </h3>
+
+
+                        <p>
+
+                            Turn your skills into practical
+                            projects and prepare for the
+                            professional job market.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                Projects
+                            </span>
+
+
+                            <span class="tag">
+                                DSA
+                            </span>
+
+
+                            <span class="tag">
+                                GitHub
+                            </span>
+
+
+                            <span class="tag">
+                                Resume
+                            </span>
+
+
+                            <span class="tag">
+                                Interviews
+                            </span>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TECHNOLOGY STACK
+====================================================== -->
+
+<section id="stack">
+
+
+    <div class="container">
+
+
+        <div class="section-header reveal">
+
+
+            <span class="section-label">
+
+                TECHNOLOGY STACK
+
+            </span>
+
+
+            <h2>
+
+                Everything You Need to
+
+                <span class="gradient-text">
+                    Build
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                A modern Full Stack Java developer
+                works across multiple layers of the
+                application stack.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+            <!-- JAVA -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="tech-card">
+
+
+                    <div class="tech-icon">
+
+                        <i class="bi bi-cup-hot"></i>
+
+                    </div>
+
+
+                    <h4>
+                        Java
+                    </h4>
+
+
+                    <p>
+
+                        Core Java, OOP, Collections,
+                        Streams, Exception Handling,
+                        Multithreading and modern
+                        Java concepts.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FRONTEND -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="tech-card">
+
+
+                    <div class="tech-icon">
+
+                        <i class="bi bi-code-square"></i>
+
+                    </div>
+
+
+                    <h4>
+                        Frontend
+                    </h4>
+
+
+                    <p>
+
+                        HTML5, CSS3, JavaScript,
+                        Bootstrap 5, responsive design
+                        and UI/UX principles.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DATABASE -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="tech-card">
+
+
+                    <div class="tech-icon">
+
+                        <i class="bi bi-database"></i>
+
+                    </div>
+
+
+                    <h4>
+                        Database
+                    </h4>
+
+
+                    <p>
+
+                        SQL, MySQL, database design,
+                        relationships, joins, normalization
+                        and JDBC.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SPRING -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="tech-card">
+
+
+                    <div class="tech-icon">
+
+                        <i class="bi bi-diagram-3"></i>
+
+                    </div>
+
+
+                    <h4>
+                        Spring Ecosystem
+                    </h4>
+
+
+                    <p>
+
+                        Spring Boot, Spring MVC,
+                        Spring Data JPA, Hibernate,
+                        Maven and backend architecture.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SECURITY -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="tech-card">
+
+
+                    <div class="tech-icon">
+
+                        <i class="bi bi-shield-check"></i>
+
+                    </div>
+
+
+                    <h4>
+                        Security
+                    </h4>
+
+
+                    <p>
+
+                        Authentication, authorization,
+                        JWT, Spring Security and
+                        API security concepts.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DEVOPS -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="tech-card">
+
+
+                    <div class="tech-icon">
+
+                        <i class="bi bi-cloud"></i>
+
+                    </div>
+
+
+                    <h4>
+                        DevOps
+                    </h4>
+
+
+                    <p>
+
+                        Git, GitHub, Docker, CI/CD
+                        and cloud deployment
+                        fundamentals.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+====================================================== -->
+
+<section>
+
+
+    <div class="container">
+
+
+        <div class="section-header reveal">
+
+
+            <span class="section-label">
+
+                CORE SKILLS
+
+            </span>
+
+
+            <h2>
+
+                Build Your
+
+                <span class="gradient-text">
+                    Skill Set
+                </span>
+
+            </h2>
+
+
+        </div>
+
+
+
+        <div class="row justify-content-center">
+
+
+            <div class="col-lg-9">
+
+
+                <div class="skill-panel reveal">
+
+
+                    <div class="skill-item">
+
+
+                        <div class="skill-header">
+
+                            <span>
+                                Java & OOP
+                            </span>
+
+                            <span>
+                                Core
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div class="progress-value"
+                                 data-width="92">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="skill-item">
+
+
+                        <div class="skill-header">
+
+                            <span>
+                                Frontend Development
+                            </span>
+
+                            <span>
+                                Core
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div class="progress-value"
+                                 data-width="85">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="skill-item">
+
+
+                        <div class="skill-header">
+
+                            <span>
+                                SQL & Database
+                            </span>
+
+                            <span>
+                                Core
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div class="progress-value"
+                                 data-width="80">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="skill-item">
+
+
+                        <div class="skill-header">
+
+                            <span>
+                                Spring Boot
+                            </span>
+
+                            <span>
+                                Advanced
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div class="progress-value"
+                                 data-width="78">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="skill-item">
+
+
+                        <div class="skill-header">
+
+                            <span>
+                                REST API & Security
+                            </span>
+
+                            <span>
+                                Advanced
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div class="progress-value"
+                                 data-width="75">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="skill-item">
+
+
+                        <div class="skill-header">
+
+                            <span>
+                                Git & DevOps
+                            </span>
+
+                            <span>
+                                Growing
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div class="progress-value"
+                                 data-width="65">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+====================================================== -->
+
+<section id="projects">
+
+
+    <div class="container">
+
+
+        <div class="section-header reveal">
+
+
+            <span class="section-label">
+
+                BUILD TO LEARN
+
+            </span>
+
+
+            <h2>
+
+                Projects That
+
+                <span class="gradient-text">
+                    Prove Your Skills
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Projects transform concepts into
+                practical experience and give your
+                GitHub portfolio real substance.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+            <!-- PROJECT 01 -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="project-card">
+
+
+                    <div class="project-visual">
+
+
+                        <span class="project-number">
+                            PROJECT 01
+                        </span>
+
+
+                        <i class="bi bi-mortarboard"></i>
+
+
+                    </div>
+
+
+                    <div class="project-body">
+
+
+                        <h3>
+
+                            Student Management System
+
+                        </h3>
+
+
+                        <p>
+
+                            Manage student profiles,
+                            courses, attendance and
+                            academic records.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                Java
+                            </span>
+
+
+                            <span class="tag">
+                                MySQL
+                            </span>
+
+
+                            <span class="tag">
+                                JDBC
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="project-footer">
+
+                            <span class="project-link">
+
+                                Beginner →
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 02 -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="project-card">
+
+
+                    <div class="project-visual">
+
+
+                        <span class="project-number">
+                            PROJECT 02
+                        </span>
+
+
+                        <i class="bi bi-cart3"></i>
+
+
+                    </div>
+
+
+                    <div class="project-body">
+
+
+                        <h3>
+
+                            E-Commerce Platform
+
+                        </h3>
+
+
+                        <p>
+
+                            Build products, authentication,
+                            shopping cart, orders and
+                            backend APIs.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                Spring Boot
+                            </span>
+
+
+                            <span class="tag">
+                                REST
+                            </span>
+
+
+                            <span class="tag">
+                                MySQL
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="project-footer">
+
+                            <span class="project-link">
+
+                                Intermediate →
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT 03 -->
+
+            <div class="col-md-6 col-lg-4 reveal">
+
+
+                <div class="project-card">
+
+
+                    <div class="project-visual">
+
+
+                        <span class="project-number">
+                            PROJECT 03
+                        </span>
+
+
+                        <i class="bi bi-kanban"></i>
+
+
+                    </div>
+
+
+                    <div class="project-body">
+
+
+                        <h3>
+
+                            Employee Management API
+
+                        </h3>
+
+
+                        <p>
+
+                            Enterprise-style employee
+                            management system with
+                            authentication and roles.
+
+                        </p>
+
+
+                        <div class="tags">
+
+
+                            <span class="tag">
+                                Spring Boot
+                            </span>
+
+
+                            <span class="tag">
+                                JPA
+                            </span>
+
+
+                            <span class="tag">
+                                JWT
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="project-footer">
+
+                            <span class="project-link">
+
+                                Advanced →
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT CREATOR
+====================================================== -->
+
+<section id="about">
+
+
+    <div class="container">
+
+
+        <div class="section-header reveal">
+
+
+            <span class="section-label">
+
+                ABOUT THE CREATOR
+
+            </span>
+
+
+            <h2>
+
+                Built by
+
+                <span class="gradient-text">
+
+                    Abhijeet
+
+                </span>
+
+            </h2>
+
+
+        </div>
+
+
+
+        <div class="creator-box reveal">
+
+
+            <div class="creator-avatar">
+
+                AS
+
+            </div>
+
+
+            <h3>
+
+                Abhijeet Mohan Salunke
+
+            </h3>
+
+
+            <div class="creator-role">
+
+                Full Stack Java Developer · Developer
+
+            </div>
+
+
+            <p>
+
+                I designed and developed this interactive
+                Full Stack Java Roadmap to organize the
+                complete developer journey into a clear,
+                visual and practical learning experience.
+
+                The project combines modern UI/UX,
+                responsive web design, animations and
+                JavaScript interactions to demonstrate
+                frontend development skills.
+
+            </p>
+
+
+            <div class="tags justify-content-center mb-4">
+
+
+                <span class="tag">
+                    HTML5
+                </span>
+
+
+                <span class="tag">
+                    CSS3
+                </span>
+
+
+                <span class="tag">
+                    JavaScript
+                </span>
+
+
+                <span class="tag">
+                    Bootstrap 5
+                </span>
+
+
+                <span class="tag">
+                    UI/UX
+                </span>
+
+
+                <span class="tag">
+                    Responsive Design
+                </span>
+
+
+            </div>
+
+
+            <div class="social-buttons">
+
+
+                <!-- Replace # with your real GitHub URL -->
+
+                <a href="#"
+                   class="social-btn"
+                   title="GitHub">
+
+                    <i class="bi bi-github"></i>
+
+                </a>
+
+
+                <!-- Replace # with your real LinkedIn URL -->
+
+                <a href="#"
+                   class="social-btn"
+                   title="LinkedIn">
+
+                    <i class="bi bi-linkedin"></i>
+
+                </a>
+
+
+                <a href="#home"
+                   class="social-btn"
+                   title="Portfolio">
+
+                    <i class="bi bi-globe"></i>
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+====================================================== -->
+
+<section class="cta">
+
+
+    <div class="container">
+
+
+        <div class="cta-box reveal">
+
+
+            <span class="section-label">
+
+                START BUILDING
+
+            </span>
+
+
+            <h2>
+
+                Learn.
+
+                <span class="gradient-text">
+                    Build.
+                </span>
+
+                Deploy.
+
+            </h2>
+
+
+            <p>
+
+                Follow the roadmap, build real applications,
+                document your work on GitHub and keep
+                improving one skill at a time.
+
+            </p>
+
+
+            <div class="d-flex
+                        justify-content-center
+                        flex-wrap
+                        gap-3">
+
+
+                <a href="#roadmap"
+                   class="btn-main">
+
+                    Start the Roadmap
+
+                    <i class="bi bi-arrow-up-right ms-2"></i>
+
+                </a>
+
+
+                <a href="#about"
+                   class="btn-ghost">
+
+                    Meet the Creator
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+
+    <div class="container">
+
+
+        <div class="d-flex
+                    flex-column
+                    flex-md-row
+                    justify-content-between
+                    align-items-center
+                    gap-3">
+
+
+            <p>
+
+                © 2026
+
+                <span class="footer-name">
+
+                    Abhijeet Mohan Salunke
+
+                </span>
+
+                · Full Stack Java Roadmap
+
+            </p>
+
+
+            <p>
+
+                Designed & Developed with
+
+                <span style="color:#f87171;">
+                    ♥
+                </span>
+
+                using HTML · CSS · JavaScript · Bootstrap 5
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BACK TO TOP
+====================================================== -->
+
+<button id="backTop"
+        aria-label="Back to top">
+
+    <i class="bi bi-arrow-up"></i>
+
+</button>
+
+
+
+<!-- =====================================================
+     ROADMAP MODAL
+====================================================== -->
+
+<div class="modal fade"
+     id="roadmapModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+
+    <div class="modal-dialog modal-dialog-centered">
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+
+                <div>
+
+                    <small class="text-secondary">
+                        ROADMAP PHASE
+                    </small>
+
+                    <h4 class="modal-title mt-1"
+                        id="modalTitle">
+
+                        Phase
+
+                    </h4>
+
+                </div>
+
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+
+                </button>
+
+
+            </div>
+
+
+            <div class="modal-body">
+
+
+                <p class="modal-description"
+                   id="modalDescription">
+
+                </p>
+
+
+                <h6 class="mt-4 mb-3">
+
+                    What to learn
+
+                </h6>
+
+
+                <ul class="detail-list"
+                    id="modalList">
+
+                </ul>
+
+
+            </div>
+
+
+            <div class="modal-footer">
+
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                    Close
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+====================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+    /* =================================================
+       THEME TOGGLE
+    ================================================= */
+
+
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+
+    const themeIcon =
+        document.getElementById("themeIcon");
+
+
+    themeToggle.addEventListener(
+        "click",
+        function() {
+
+
+            document.body.classList.toggle(
+                "light-mode"
+            );
+
+
+            const light =
+                document.body.classList.contains(
+                    "light-mode"
+                );
+
+
+            themeIcon.className =
+                light
+                    ? "bi bi-sun"
+                    : "bi bi-moon-stars";
+
+
+            localStorage.setItem(
+                "theme",
+                light
+                    ? "light"
+                    : "dark"
+            );
+
+
+        }
+    );
+
+
+    /* RESTORE THEME */
+
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add(
+            "light-mode"
+        );
+
+        themeIcon.className =
+            "bi bi-sun";
+
+    }
+
+
+
+    /* =================================================
+       SCROLL PROGRESS
+    ================================================= */
+
+
+    const scrollProgress =
+        document.getElementById(
+            "scrollProgress"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+
+            const scrollTop =
+                window.scrollY;
+
+
+            const documentHeight =
+                document.documentElement
+                    .scrollHeight -
+                window.innerHeight;
+
+
+            const percentage =
+                (scrollTop /
+                    documentHeight) *
+                100;
+
+
+            scrollProgress.style.width =
+                percentage + "%";
+
+
+        }
+    );
+
+
+
+    /* =================================================
+       SCROLL REVEAL
+    ================================================= */
+
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            function(entries) {
+
+
+                entries.forEach(
+                    function(entry) {
+
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+
+                        }
+
+
+                    }
+                );
+
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    revealElements.forEach(
+        function(element) {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+
+
+    /* =================================================
+       COUNTERS
+    ================================================= */
+
+
+    const counters =
+        document.querySelectorAll(
+            ".counter"
+        );
+
+
+    let countersStarted = false;
+
+
+    function startCounters() {
+
+
+        if (countersStarted)
+            return;
+
+
+        countersStarted = true;
+
+
+        counters.forEach(
+            function(counter) {
+
+
+                const target =
+                    Number(
+                        counter.dataset.target
+                    );
+
+
+                let current = 0;
+
+
+                const increment =
+                    target / 45;
+
+
+                const timer =
+                    setInterval(
+                        function() {
+
+
+                            current +=
+                                increment;
+
+
+                            if (
+                                current >=
+                                target
+                            ) {
+
+
+                                counter.textContent =
+                                    target + "+";
+
+
+                                clearInterval(
+                                    timer
+                                );
+
+
+                            }
+
+                            else {
+
+
+                                counter.textContent =
+                                    Math.floor(
+                                        current
+                                    );
+
+                            }
+
+
+                        },
+                        30
+                    );
+
+
+            }
+        );
+
+    }
+
+
+    const statsSection =
+        document.querySelector(
+            ".stats-section"
+        );
+
+
+    const counterObserver =
+        new IntersectionObserver(
+
+            function(entries) {
+
+
+                if (
+                    entries[0].isIntersecting
+                ) {
+
+                    startCounters();
+
+                }
+
+
+            },
+
+            {
+                threshold: 0.4
+            }
+
+        );
+
+
+    counterObserver.observe(
+        statsSection
+    );
+
+
+
+    /* =================================================
+       SKILL PROGRESS ANIMATION
+    ================================================= */
+
+
+    const progressValues =
+        document.querySelectorAll(
+            ".progress-value"
+        );
+
+
+    const skillObserver =
+        new IntersectionObserver(
+
+            function(entries) {
+
+
+                entries.forEach(
+                    function(entry) {
+
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+
+                            const width =
+                                entry.target
+                                    .dataset
+                                    .width;
+
+
+                            entry.target.style.width =
+                                width + "%";
+
+
+                        }
+
+
+                    }
+                );
+
+
+            },
+
+            {
+                threshold: 0.4
+            }
+
+        );
+
+
+    progressValues.forEach(
+        function(progress) {
+
+            skillObserver.observe(
+                progress
+            );
+
+        }
+    );
+
+
+
+    /* =================================================
+       ROADMAP MODAL
+    ================================================= */
+
+
+    const phaseData = {
+
+
+        java: {
+
+            title:
+                "Java Fundamentals",
+
+            description:
+                "Build the programming foundation required for professional Java development.",
+
+            topics: [
+
+                "Java syntax and variables",
+
+                "Conditional statements and loops",
+
+                "Methods and arrays",
+
+                "Strings and basic problem solving",
+
+                "Input/output fundamentals"
+
+            ]
+
+        },
+
+
+        oop: {
+
+            title:
+                "OOP & Advanced Java",
+
+            description:
+                "Learn how Java applications are designed using object-oriented programming and advanced language features.",
+
+            topics: [
+
+                "Classes and objects",
+
+                "Inheritance and polymorphism",
+
+                "Abstraction and encapsulation",
+
+                "Collections Framework",
+
+                "Exception handling",
+
+                "Streams and multithreading"
+
+            ]
+
+        },
+
+
+        frontend: {
+
+            title:
+                "Frontend Development",
+
+            description:
+                "Develop responsive interfaces that connect users with your backend applications.",
+
+            topics: [
+
+                "Semantic HTML5",
+
+                "CSS layouts and responsive design",
+
+                "JavaScript fundamentals",
+
+                "DOM manipulation",
+
+                "Bootstrap 5",
+
+                "UI/UX principles"
+
+            ]
+
+        },
+
+
+        database: {
+
+            title:
+                "SQL & Databases",
+
+            description:
+                "Understand how application data is designed, stored and retrieved.",
+
+            topics: [
+
+                "SQL fundamentals",
+
+                "SELECT, INSERT, UPDATE and DELETE",
+
+                "Joins and subqueries",
+
+                "Database relationships",
+
+                "Normalization",
+
+                "JDBC connectivity"
+
+            ]
+
+        },
+
+
+        spring: {
+
+            title:
+                "Spring Boot",
+
+            description:
+                "Build production-style Java backend applications using the Spring ecosystem.",
+
+            topics: [
+
+                "Spring fundamentals",
+
+                "Dependency injection",
+
+                "Spring Boot",
+
+                "Spring MVC",
+
+                "Spring Data JPA",
+
+                "Hibernate",
+
+                "Maven"
+
+            ]
+
+        },
+
+
+        api: {
+
+            title:
+                "REST APIs & Security",
+
+            description:
+                "Connect applications through APIs and understand modern authentication concepts.",
+
+            topics: [
+
+                "REST architecture",
+
+                "HTTP methods",
+
+                "JSON",
+
+                "API testing with Postman",
+
+                "Authentication",
+
+                "JWT",
+
+                "Spring Security"
+
+            ]
+
+        },
+
+
+        devops: {
+
+            title:
+                "Git, DevOps & Cloud",
+
+            description:
+                "Learn the tools used to manage source code and move applications toward deployment.",
+
+            topics: [
+
+                "Git fundamentals",
+
+                "GitHub workflows",
+
+                "Maven builds",
+
+                "Docker fundamentals",
+
+                "CI/CD concepts",
+
+                "Cloud deployment fundamentals"
+
+            ]
+
+        },
+
+
+        career: {
+
+            title:
+                "Projects & Career",
+
+            description:
+                "Turn your technical skills into evidence that can be presented to employers.",
+
+            topics: [
+
+                "Build portfolio projects",
+
+                "Create a strong GitHub profile",
+
+                "Practice DSA",
+
+                "Prepare Java interview questions",
+
+                "Create an ATS-friendly resume",
+
+                "Apply consistently for relevant roles"
+
+            ]
+
+        }
+
+    };
+
+
+    const roadmapCards =
+        document.querySelectorAll(
+            ".roadmap-content"
+        );
+
+
+    const modalTitle =
+        document.getElementById(
+            "modalTitle"
+        );
+
+
+    const modalDescription =
+        document.getElementById(
+            "modalDescription"
+        );
+
+
+    const modalList =
+        document.getElementById(
+            "modalList"
+        );
+
+
+    const roadmapModal =
+        new bootstrap.Modal(
+            document.getElementById(
+                "roadmapModal"
+            )
+        );
+
+
+    roadmapCards.forEach(
+        function(card) {
+
+
+            card.addEventListener(
+                "click",
+                function() {
+
+
+                    const phase =
+                        phaseData[
+                            card.dataset.phase
+                        ];
+
+
+                    if (!phase)
+                        return;
+
+
+                    modalTitle.textContent =
+                        phase.title;
+
+
+                    modalDescription.textContent =
+                        phase.description;
+
+
+                    modalList.innerHTML =
+                        "";
+
+
+                    phase.topics.forEach(
+                        function(topic) {
+
+
+                            const li =
+                                document.createElement(
+                                    "li"
+                                );
+
+
+                            li.innerHTML =
+
+                                `<i class="bi bi-check-circle-fill"></i>
+                                 ${topic}`;
+
+
+                            modalList.appendChild(
+                                li
+                            );
+
+
+                        }
+                    );
+
+
+                    roadmapModal.show();
+
+
+                }
+            );
+
+
+        }
+    );
+
+
+
+    /* =================================================
+       BACK TO TOP
+    ================================================= */
+
+
+    const backTop =
+        document.getElementById(
+            "backTop"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+
+            if (
+                window.scrollY > 600
+            ) {
+
+
+                backTop.classList.add(
+                    "show"
+                );
+
+
+            }
+
+            else {
+
+
+                backTop.classList.remove(
+                    "show"
+                );
+
+
+            }
+
+
+        }
+    );
+
+
+    backTop.addEventListener(
+        "click",
+        function() {
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+
+        }
+    );
+
+
+
+    /* =================================================
+       MOBILE NAVBAR AUTO CLOSE
+    ================================================= */
+
+
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-link"
+        );
+
+
+    const navbar =
+        document.getElementById(
+            "mainNav"
+        );
+
+
+    navLinks.forEach(
+        function(link) {
+
+
+            link.addEventListener(
+                "click",
+                function() {
+
+
+                    if (
+                        navbar.classList.contains(
+                            "show"
+                        )
+                    ) {
+
+
+                        const collapse =
+                            new bootstrap.Collapse(
+                                navbar
+                            );
+
+
+                        collapse.hide();
+
+
+                    }
+
+
+                }
+            );
+
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>
